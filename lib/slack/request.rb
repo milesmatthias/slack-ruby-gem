@@ -25,7 +25,7 @@ module Slack
 
     # Perform an HTTP request
     def request(method, path, options)
-      options = options.merge(token: token)
+      options = options.merge(token: token) unless token.nil?
       response = connection.send(method) do |request|
         case method
         when :get, :delete
